@@ -8,6 +8,7 @@ import {fetchFood, fetchSuggestions} from "@/services/FoodService"
 import {random} from "lodash"
 import {AxiosResponse} from 'axios';
 import AutocompleteInput from '@/components/AutoCompleteInput'
+import Foods from '@/components/Foods'
 
 
 
@@ -62,7 +63,6 @@ const Home: NextPage = () => {
 
     }
 
-
     return (
         <div className={styles.container}>
             <Head>
@@ -72,17 +72,9 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-
-
             <main className={styles.main}>
                 <AutocompleteInput/>
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        type your food:
-                        <input type="text" value={foodQuery}
-                               onChange={handleOnChange}/>
-                    </label>
-                </form>
+                <Foods/>
 
 
 

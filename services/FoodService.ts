@@ -12,7 +12,6 @@ nutritionix.init(YOUR_APP_ID, YOUR_API_KEY);
 export const fetchFood = async (foodQuery: string) => {
     const result = await nutritionix.natural.search(foodQuery)
     const food: object = result?.foods[0]
-    console.log("-> fetched food", food);
     return food
 }
 

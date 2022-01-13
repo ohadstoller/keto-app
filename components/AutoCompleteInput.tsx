@@ -4,7 +4,9 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
 import {AxiosResponse} from "axios";
-import {fetchSuggestions} from "@/services/FoodService";
+import {fetchFood, fetchSuggestions} from "@/services/FoodService";
+import {useRecoilState} from "recoil";
+import {foodListState} from "@/atoms/FoodAtom";
 
 interface Food {
     common_type: any,
@@ -17,14 +19,8 @@ interface Food {
     tag_name: string
 }
 
-function sleep(delay = 0) {
-    return new Promise((resolve) => {
-        setTimeout(resolve, delay);
-    });
-}
-
-
 export default function AutocompleteInput() {
+    const [foodItems, setFoodItems] = useRecoilState(foodListState)
     const [open, setOpen] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [options, setOptions] = useState<any[]>([]);
@@ -42,15 +38,25 @@ export default function AutocompleteInput() {
         }
     }
 
-    const onChange = (e: React.SyntheticEvent) => {
+    const onChange = async (e: React.SyntheticEvent) => {
         e.preventDefault()
         // @ts-ignore
         if (e.target.value) {
             // fetch api
             console.log("-> fetching... e.target.value", e.target.value);
+            let fetchedFood = await fetchFood(e.target.value)
+            console.log("-> fetchedFood", fetchedFood);
+            setFoodItems((foodItems: (Food | object)[]): Food[] => {
+                return [fetchedFood, ...foodItems];
+            });
         }
         else if (e.target.outerText) {
             console.log("-> fetching... e.target.outerText", e.target.outerText);
+            let fetchedFood = await fetchFood(e.target.outerText)
+            console.log("-> fetchedFood", fetchedFood);
+            setFoodItems((foodItems: (Food | object)[]): Food[] => {
+                return [fetchedFood, ...foodItems];
+            });
         }
 
         setInputValue('')
@@ -100,7 +106,7 @@ export default function AutocompleteInput() {
                 autoComplete
                 onChange={onChange}
                 clearOnBlur
-                clearOnEscape
+
                 onInputChange={onInputChange}
                 onOpen={() => {
                     setOpen(true);
@@ -110,9 +116,9 @@ export default function AutocompleteInput() {
                 }}
                 isOptionEqualToValue={(option, value) => option.food_name === value.food_name}
                 getOptionLabel={(option) => option.food_name ? option.food_name : ''}
-                // renderTags={() => null}
+
                 options={options}
-                // selectOnFocus
+                selectOnFocus
                 loading={loading}
                 // disableClearable
                 renderInput={(params) => (
