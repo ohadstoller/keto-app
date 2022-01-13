@@ -10,14 +10,7 @@ import {AxiosResponse} from 'axios';
 import AutocompleteInput from '@/components/AutoCompleteInput'
 import Foods from '@/components/Foods'
 
-
-
 const Home: NextPage = () => {
-    const [foodQuery, setFoodQuery] = useState('')
-    const [foodItems, setFoodItems] = useState([])
-    const [foodSuggestions, setFoodSuggestions] = useState([])
-    const [foodSuggestions2, setFoodSuggestions2] = useState([])
-
 
 
     const fiftyFiftyChance = (): boolean => {
@@ -25,43 +18,7 @@ const Home: NextPage = () => {
         return chance > 5;
     }
 
-    async function handleSubmit(e: { preventDefault: () => void; }) {
-        e.preventDefault()
-        const food = await fetchFood(foodQuery)
-        let newFoodItems = [food, ...foodItems]
-        // @ts-ignore
-        await setFoodItems(newFoodItems)
-        await setFoodQuery('')
-        await setFoodSuggestions([])
 
-    }
-
-    async function handleOnChange(e: { target: { value: SetStateAction<string>; }; }) {
-        let searchInput: SetStateAction<string> = e.target.value
-        setFoodQuery(searchInput)
-        const shouldFindSuggestedResults: boolean = fiftyFiftyChance()
-        if (searchInput.length === 0) {
-            setFoodSuggestions([])
-            return
-        }
-        if (shouldFindSuggestedResults) {
-            // if (searchInput.length === 0) {
-            //     setFoodSuggestions([])
-            // }
-            const suggestions: AxiosResponse<any> = await fetchSuggestions(searchInput as string)
-            // @ts-ignore
-            console.log(" -> suggestions", suggestions);
-            // @ts-ignore
-            setFoodSuggestions(suggestions)
-            // @ts-ignore
-            let suggestions2 = suggestions.map((suggestion) => {
-                // @ts-ignore
-                suggestions?.food_name
-            })
-            setFoodSuggestions2(suggestions2)
-        }
-
-    }
 
     return (
         <div className={styles.container}>
