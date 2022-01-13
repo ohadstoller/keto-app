@@ -8,7 +8,7 @@ function Foods() {
         <div>
             {foodItems?.map((food) => (
                 <li>
-                    {food.food_name}
+                    <span>{food.serving_qty} {food.serving_unit} {food.food_name}</span>
                 </li>
             )
 

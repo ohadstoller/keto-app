@@ -106,12 +106,12 @@ export default function AutocompleteInput() {
                 autoComplete
                 onChange={onChange}
                 clearOnBlur
-
                 onInputChange={onInputChange}
                 onOpen={() => {
                     setOpen(true);
                 }}
                 onClose={() => {
+                    setInputValue('')
                     setOpen(false);
                 }}
                 isOptionEqualToValue={(option, value) => option.food_name === value.food_name}
