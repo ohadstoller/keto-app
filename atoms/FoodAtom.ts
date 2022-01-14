@@ -12,6 +12,7 @@ interface Food {
     tag_name: string
 }
 
+// @ts-ignore
 export const foodListState: RecoilState<Food[]> = atom({
     'key': 'foodListState',
     default: []

@@ -1,15 +1,8 @@
 import * as React from 'react';
+import {useState} from 'react';
 import type {AppProps} from 'next/app';
 import {CacheProvider, EmotionCache} from '@emotion/react';
-import LightMode from '@mui/icons-material/LightMode';
-import DarkMode from '@mui/icons-material/DarkMode';
-import {
-    createTheme,
-    CssBaseline,
-    Stack,
-    Switch,
-    ThemeProvider
-} from '@mui/material';
+import {createTheme, CssBaseline, ThemeProvider} from '@mui/material';
 import {RecoilRoot} from "recoil";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -22,7 +15,7 @@ import {
 } from '@/styles/theme/lightThemeOptions';
 import '../styles/globals.css';
 import {ThemeOptions} from "@mui/material/styles";
-import {useState} from "react";
+import {SwitchTheme} from "@/components/SwitchTheme";
 
 interface MyAppProps extends AppProps {
     emotionCache?: EmotionCache;
@@ -36,35 +29,26 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
     const {Component, emotionCache = clientSideEmotionCache, pageProps} = props;
     const [theme, setTheme] = useState(lightTheme)
     const [checked, setChecked] = React.useState(false);
-    const toggleTheme = (event: any) => {
+    const toggleTheme = () => {
         theme == lightTheme ? setTheme(darkTheme) : setTheme(lightTheme)
         checked ? setChecked(false) : setChecked(true)
     }
 
-    // @ts-ignore
-    const handleChange = (event) => {
-        toggleTheme(event)
-        console.log("-> event.target.checked: before setting chit", event);
+
+    const handleChange = () => {
+        toggleTheme()
     }
 
 
     return (
         <RecoilRoot>
-        <CacheProvider value={emotionCache}>
-            <Stack direction="row" spacing={1} alignItems="center">
-                <LightMode/>
-                <Switch
-                    checked={checked}
-                    onChange={handleChange}
-                    inputProps={{ 'aria-label': 'controlled' }}
-                />
-                <DarkMode/>
-            </Stack>
-            <ThemeProvider theme={theme}>
-                <CssBaseline/>
+            <CacheProvider value={emotionCache}>
+                <SwitchTheme checked={checked} onChange={handleChange}/>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline/>
                     <Component {...pageProps} />
-            </ThemeProvider>
-        </CacheProvider>
+                </ThemeProvider>
+            </CacheProvider>
         </RecoilRoot>
     );
 };

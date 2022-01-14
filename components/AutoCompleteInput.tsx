@@ -12,7 +12,7 @@ interface Food {
     common_type: any,
     food_name: string,
     local: string,
-    photo: {thumb: string},
+    photo: { thumb: string },
     serving_qty: number,
     serving_unit: string,
     tag_id: string,
@@ -24,52 +24,45 @@ export default function AutocompleteInput() {
     const [open, setOpen] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [options, setOptions] = useState<any[]>([]);
-    // const loading = open && options?.length === 0;
     const [loading, setLoading] = useState(false)
 
     const onInputChange = (event: React.SyntheticEvent, value: string, reason: string) => {
         // @ts-ignore
         setInputValue(event.target?.value);
         if (event.type === 'click') {
-            if ( reason === 'clear') {
+            if (reason === 'clear') {
                 setInputValue('');
                 setOpen(false)
             }
         }
     }
 
+    async function setToFetchedFood(value: string) {
+        let fetchedFood = await fetchFood(value)
+        console.log("-> fetchedFood", fetchedFood);
+        setFoodItems((foodItems: (Food | object)[]): Food[] => {
+            // @ts-ignore
+            return [fetchedFood, ...foodItems];
+        });
+    }
+
     const onChange = async (e: React.SyntheticEvent) => {
         e.preventDefault()
         // @ts-ignore
-        if (e.target.value) {
-            // fetch api
-            console.log("-> fetching... e.target.value", e.target.value);
-            let fetchedFood = await fetchFood(e.target.value)
-            console.log("-> fetchedFood", fetchedFood);
-            setFoodItems((foodItems: (Food | object)[]): Food[] => {
-                return [fetchedFood, ...foodItems];
-            });
+        const {outerText, value} = e.target;
+        if (value) {
+            console.log("-> fetching... e.target.value", value);
+            await setToFetchedFood(value);
+        } else if (outerText) {
+            console.log("-> fetching... e.target.outerText", outerText);
+            await setToFetchedFood(outerText);
         }
-        else if (e.target.outerText) {
-            console.log("-> fetching... e.target.outerText", e.target.outerText);
-            let fetchedFood = await fetchFood(e.target.outerText)
-            console.log("-> fetchedFood", fetchedFood);
-            setFoodItems((foodItems: (Food | object)[]): Food[] => {
-                return [fetchedFood, ...foodItems];
-            });
-        }
-
         setInputValue('')
     }
 
-
     useEffect(() => {
-        // if (!loading) {
-        //     return undefined;
-        // }
         let active = true;
         (async () => {
-
             if (inputValue.length > 1) {
                 setLoading(true)
                 const suggestions: AxiosResponse<Food[]> = await fetchSuggestions(inputValue as string)
@@ -81,7 +74,6 @@ export default function AutocompleteInput() {
                 }
             }
         })();
-
         return () => {
             setLoading(false)
             active = false;
@@ -90,12 +82,8 @@ export default function AutocompleteInput() {
 
     // @ts-ignore
     useEffect(() => {
-        // if (!open) {
-        //     setOptions([]);
-        // }
         inputValue === '' ? setOpen(false) : setOpen(true)
     }, [open, options, inputValue]);
-
 
     return (
         <div>
@@ -116,7 +104,6 @@ export default function AutocompleteInput() {
                 }}
                 isOptionEqualToValue={(option, value) => option.food_name === value.food_name}
                 getOptionLabel={(option) => option.food_name ? option.food_name : ''}
-
                 options={options}
                 selectOnFocus
                 loading={loading}
@@ -138,9 +125,7 @@ export default function AutocompleteInput() {
                     />
                 )}
             />
-
         </div>
-
     );
 }
 

@@ -1,21 +1,18 @@
 import React from 'react';
-import {useRecoilState} from "recoil";
+import {useRecoilValue} from "recoil";
 import {foodListState} from '@/atoms/FoodAtom'
+import hash from "object-hash";
 
 function Foods() {
-    const [foodItems, setFoodItems] = useRecoilState(foodListState)
+    const foodItems = useRecoilValue(foodListState)
     return (
         <div>
             {foodItems?.map((food) => (
-                <li>
-                    <span>{food.serving_qty} {food.serving_unit} {food.food_name}</span>
-                </li>
-            )
-
-
-            )
-            }
-
+                    <li key={hash(food)}>
+                        <span>{food.serving_qty} {food.serving_unit} {food.food_name}</span>
+                    </li>
+                )
+            )}
         </div>
     );
 }
