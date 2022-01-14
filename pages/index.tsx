@@ -5,7 +5,8 @@ import styles from '../styles/Home.module.css'
 import * as React from "react";
 import {random} from "lodash"
 import AutocompleteInput from '@/components/AutoCompleteInput'
-import Foods from '@/components/Foods'
+// import Foods from '@/components/Foods'
+import FoodTable from '@/components/FoodTable';
 
 const Home: NextPage = () => {
     // const fiftyFiftyChance = (): boolean => {
@@ -23,7 +24,8 @@ const Home: NextPage = () => {
             </Head>
             <main className={styles.main}>
                 <AutocompleteInput/>
-                <Foods/>
+                {/*<Foods/>*/}
+                <FoodTable/>
 
 
                 {/*<h1 className={styles.title}>*/}

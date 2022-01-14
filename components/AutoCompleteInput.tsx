@@ -7,6 +7,7 @@ import {AxiosResponse} from "axios";
 import {fetchFood, fetchSuggestions} from "@/services/FoodService";
 import {useRecoilState} from "recoil";
 import {foodListState} from "@/atoms/FoodAtom";
+import hash from "object-hash";
 
 interface Food {
     common_type: any,
@@ -40,9 +41,11 @@ export default function AutocompleteInput() {
     async function setToFetchedFood(value: string) {
         let fetchedFood = await fetchFood(value)
         console.log("-> fetchedFood", fetchedFood);
+        const foodItemWithId = {...fetchedFood, id: hash(fetchedFood)};
+        console.log("-> foodItemWithId", foodItemWithId);
         setFoodItems((foodItems: (Food | object)[]): Food[] => {
             // @ts-ignore
-            return [fetchedFood, ...foodItems];
+            return [foodItemWithId, ...foodItems];
         });
     }
 
@@ -94,6 +97,10 @@ export default function AutocompleteInput() {
                 autoComplete
                 onChange={onChange}
                 clearOnBlur
+                // autoSelect
+                // selectOnFocus
+                // handleHomeEndKeys
+                // openOnFocus
                 onInputChange={onInputChange}
                 onOpen={() => {
                     setOpen(true);
@@ -105,7 +112,7 @@ export default function AutocompleteInput() {
                 isOptionEqualToValue={(option, value) => option.food_name === value.food_name}
                 getOptionLabel={(option) => option.food_name ? option.food_name : ''}
                 options={options}
-                selectOnFocus
+
                 loading={loading}
                 // disableClearable
                 renderInput={(params) => (
