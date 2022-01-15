@@ -11,8 +11,8 @@ import '@fontsource/roboto/700.css';
 import createEmotionCache from '../utility/createEmotionCache';
 import {
     darkThemeOptions,
-    lightThemeOptions
-} from '@/styles/theme/lightThemeOptions';
+    themeOptions
+} from '@/styles/theme/themeOptions';
 import '../styles/globals.css';
 import {ThemeOptions} from "@mui/material/styles";
 import {SwitchTheme} from "@/components/SwitchTheme";
@@ -21,7 +21,7 @@ interface MyAppProps extends AppProps {
     emotionCache?: EmotionCache;
 }
 const clientSideEmotionCache = createEmotionCache();
-const lightTheme: ThemeOptions = createTheme(lightThemeOptions);
+const lightTheme: ThemeOptions = createTheme(themeOptions);
 const darkTheme: ThemeOptions = createTheme(darkThemeOptions);
 
 

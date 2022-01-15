@@ -234,7 +234,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
                     id="tableTitle"
                     component="div"
                 >
-                    Nutrition
+                    Food Logs
                 </Typography>
             )}
             <Tooltip title="Delete">
@@ -407,10 +407,10 @@ export default function EnhancedTable() {
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
             </Paper>
-            <FormControlLabel
-                control={<Switch checked={dense} onChange={handleChangeDense}/>}
-                label="Dense padding"
-            />
+            {/*<FormControlLabel*/}
+            {/*    control={<Switch checked={dense} onChange={handleChangeDense}/>}*/}
+            {/*    label="Dense padding"*/}
+            {/*/>*/}
         </Box>
     );
 }

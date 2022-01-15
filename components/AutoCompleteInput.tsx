@@ -91,7 +91,10 @@ export default function AutocompleteInput() {
     return (
         <div>
             <Autocomplete
-                sx={{width: 300}}
+                sx={{
+                    width: '30vw',
+                    display: 'flex',
+                }}
                 open={open}
                 freeSolo
                 autoComplete
