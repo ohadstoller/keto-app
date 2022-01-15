@@ -17,7 +17,7 @@ function Copyright() {
         <Typography variant="body2" color="text.secondary">
             {'Copyright © '}
             <Link color="inherit"
-                  href="https://github.com/ohadstoller/"
+                  href="https://github.com/ohadstoller"
             >
                 Ohad Mark Stoller
             </Link>{' '}
@@ -140,7 +140,7 @@ function AppLayout() {
 
                             }}
                             color="inherit"
-                              href="https://github.com/ohadstoller/"
+                              href="https://github.com/ohadstoller/keto-app"
                         >
                             The Keto App
 

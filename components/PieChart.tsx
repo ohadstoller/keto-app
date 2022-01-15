@@ -102,7 +102,7 @@ export default function MacrosPieChart({data}) {
                 cy={200}
                 innerRadius={60}
                 outerRadius={80}
-                fill="#8884d8"
+                fill="#3A77D2"
                 dataKey="value"
                 onMouseEnter={onPieEnter}
             />
