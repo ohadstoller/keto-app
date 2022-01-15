@@ -254,7 +254,7 @@ export default function EnhancedTable() {
         const updatedFoodItems = async () => {
             const newFoodItems = foodItems.map(foodItem =>
                 createData(
-                    foodItem.food_name,
+                    `${foodItem.serving_qty} ${foodItem.serving_unit} ${foodItem.food_name}`,
                     foodItem?.nf_calories,
                     foodItem?.nf_total_fat,
                     foodItem?.nf_total_carbohydrate,
@@ -354,7 +354,7 @@ export default function EnhancedTable() {
                                             role="checkbox"
                                             aria-checked={isItemSelected}
                                             tabIndex={-1}
-                                            key={row.name}
+                                            key={row.id}
                                             selected={isItemSelected}
                                         >
                                             <TableCell padding="checkbox">
