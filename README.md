@@ -12,11 +12,11 @@
     Log your meal, using free speech analysis, and discover your macros :)
     <br />
     <br />
-<!--     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> -->
-    ·
-    <a href="https://github.com/ohadstoller/keto-app/issues">Report Bug | Feature Request</a>
 
     ·
+    <a href="https://github.com/ohadstoller/keto-app/issues">Report Bug | Feature Request</a>
+    ·
+    
   </p>
 </div>
 
@@ -109,7 +109,12 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-<div align="right">     ![](https://github.com/ohadstoller/keto-app/blob/main/keto-app-gif.gif) </div>
+
+<div align="center">
+  ![](https://github.com/ohadstoller/keto-app/blob/main/keto-app-gif.gif)
+</div>
+
+![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
 
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
