@@ -1,8 +1,5 @@
 <div id="top"></div>
 
-![](https://github.com/ohadstoller/keto-app/blob/main/keto-app-gif.gif)
-
-
 
 
 <!-- PROJECT LOGO -->
@@ -18,6 +15,7 @@
 <!--     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> -->
     ·
     <a href="https://github.com/ohadstoller/keto-app/issues">Report Bug | Feature Request</a>
+    ![](https://github.com/ohadstoller/keto-app/blob/main/keto-app-gif.gif)
     ·
   </p>
 </div>
