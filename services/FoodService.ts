@@ -1,7 +1,5 @@
 import axios, {AxiosResponse} from "axios";
-
-const YOUR_APP_ID: string = 'a73da295';
-const YOUR_API_KEY: string = 'df4dbe667601596879b00e5c48fe97b1';
+import {YOUR_APP_ID, YOUR_API_KEY} from '@/services/config'
 
 const apiClient = axios.create({
     baseURL: 'https://trackapi.nutritionix.com/v2',

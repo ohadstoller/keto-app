@@ -63,7 +63,8 @@ export default function AutocompleteInput() {
             setIsFetching(true)
             let fetchedFood = await fetchFood(value)
             handleShowAlert('Found food item, added to your list :)', 'success')
-            const foodItemWithId: any = {...fetchedFood, id: hash(fetchedFood)};
+            // @ts-ignore
+            const foodItemWithId: never = {...fetchedFood, id: hash(fetchedFood)};
             setFoodItems([foodItemWithId, ...foodItems])
             setIsFetching(false)
         } catch (e) {
