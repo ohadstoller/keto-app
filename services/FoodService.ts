@@ -19,7 +19,6 @@ export const fetchFood = async (query: string) => {
         "query": query,
     }
     const response = await apiClient.post(`/natural/nutrients`, body)
-    console.log("-> response", response);
     const food: object = response?.data?.foods[0]
     return food
 

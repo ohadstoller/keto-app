@@ -1,12 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Sector } from "recharts";
 
-// const data = [
-//     { name: "Carbs", value: 400 },
-//     { name: "Fats", value: 300 },
-//     { name: "Protein", value: 300 },
-// ];
-
 const renderActiveShape = (props: any) => {
     const RADIAN = Math.PI / 180;
     const {
@@ -18,7 +12,6 @@ const renderActiveShape = (props: any) => {
         startAngle,
         endAngle,
         fill,
-        payload,
         percent,
         value,
         name
@@ -36,7 +29,7 @@ const renderActiveShape = (props: any) => {
     return (
         <g>
             <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-                {payload.value} gr {payload.name}
+                {value} gr {name}
             </text>
             <Sector
                 cx={cx}
@@ -62,12 +55,6 @@ const renderActiveShape = (props: any) => {
                 fill="none"
             />
             <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-            {/*<text*/}
-            {/*    x={ex + (cos >= 0 ? 1 : -1) * 12}*/}
-            {/*    y={ey}*/}
-            {/*    textAnchor={textAnchor}*/}
-            {/*    fill="#999"*/}
-            {/*>{`${value} gr ${name}`}</text>*/}
             <text
                 x={ex + (cos >= 0 ? 1 : -1) * 12}
                 y={ey}
@@ -82,8 +69,6 @@ const renderActiveShape = (props: any) => {
 };
 
 export default function MacrosPieChart({data}) {
-    // {data}
-    console.log("-> data", data);
     const [activeIndex, setActiveIndex] = useState(0);
     const onPieEnter = useCallback(
         (_, index) => {

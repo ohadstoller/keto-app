@@ -32,7 +32,6 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
         checked ? setChecked(false) : setChecked(true)
     }
 
-
     const handleChange = () => {
         toggleTheme()
     }

@@ -1,6 +1,5 @@
 import {atom, RecoilState} from 'recoil'
 
-
 interface Food {
     common_type: any,
     food_name: string,
@@ -12,7 +11,6 @@ interface Food {
     tag_name: string
 }
 
-// @ts-ignore
 export const foodListState: RecoilState<Food[]> = atom({
     'key': 'foodListState',
     default: []

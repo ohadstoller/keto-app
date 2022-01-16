@@ -45,25 +45,19 @@ function NutritionFacts() {
             {name: "Fats", value: totalFats},
             {name: "Protein", value: totalProtein},
         ]
-        // @ts-ignore
         setTotalMacros(newTotalMacros)
         if (totalFats > 0 || totalCarbs > 0 || totalProtein > 0) {
             setShouldRenderPie(true)
-        }
-        else {
+        } else {
             setShouldRenderPie(false)
         }
-
-
-
     }, [foodItems, totalFats, totalCarbs, totalProtein])
 
     const renderPieChart = () => {
         if (shouldRenderPie) {
-            return<MacrosPieChart data={totalMacros} />
-        }
-        else {
-            console.log('no macros')
+            return <MacrosPieChart data={totalMacros}/>
+        } else {
+            return <></>
         }
 
 
@@ -71,14 +65,10 @@ function NutritionFacts() {
 
     return (
         <div>
-
             {
                 renderPieChart()
             }
-
-
         </div>
-
     );
 }
 

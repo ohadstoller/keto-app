@@ -273,7 +273,7 @@ export default function EnhancedTable() {
     const [orderBy, setOrderBy] = React.useState<keyof Data>('calories');
     const [selected, setSelected] = React.useState<readonly string[]>([]);
     const [page, setPage] = React.useState(0);
-    const [dense, setDense] = React.useState(false);
+    const [dense, setDense] = React.useState(true);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
     const handleRequestSort = (
@@ -287,7 +287,6 @@ export default function EnhancedTable() {
 
     const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked) {
-            // const newSelected = rows.map((n) => n.name);
             const newSelected = rows.map((n) => n.id);
             setSelected(newSelected);
             return;

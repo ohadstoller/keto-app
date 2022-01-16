@@ -59,7 +59,6 @@ export default function AutocompleteInput() {
     }
 
     async function setToFetchedFood(value: string) {
-
         try {
             setIsFetching(true)
             let fetchedFood = await fetchFood(value)
@@ -72,7 +71,6 @@ export default function AutocompleteInput() {
             handleShowAlert('Sorry, something went wrong 😪', 'error')
             console.log("-> e", e);
         }
-
     }
 
     const onChange = async (e: React.SyntheticEvent) => {
@@ -92,7 +90,6 @@ export default function AutocompleteInput() {
             if (inputValue.length > 1) {
                 setLoading(true)
                 const suggestions: AxiosResponse<Food[]> = await fetchSuggestions(inputValue as string)
-                console.log("-> suggestions", suggestions);
                 if (active) {
                     setOptions(suggestions);
                     setLoading(false)
@@ -119,7 +116,6 @@ export default function AutocompleteInput() {
                 height: '10vh',
                 alignItems: 'center'
             }}>
-
             <Autocomplete
                 sx={{
                     width: '30vw',
@@ -179,7 +175,6 @@ export default function AutocompleteInput() {
                         {alertData?.alertContent}</Alert> : <></>
                 }
             </Stack>
-
         </Container>
 
 
