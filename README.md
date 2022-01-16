@@ -15,7 +15,7 @@
   </p>
 </div>
 
-![ScreenShot](/screenshots/latest.png)
+![ScreenShot](/latest.png)
 
 
 
