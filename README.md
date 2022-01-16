@@ -13,9 +13,6 @@
     <br />
     <br />
 
-    ·
-    <a href="https://github.com/ohadstoller/keto-app/issues">Report Bug | Feature Request</a>
-    ·
     
   </p>
 </div>
@@ -114,6 +111,7 @@ To get a local copy up and running follow these simple example steps.
   ![](https://github.com/ohadstoller/keto-app/blob/main/keto-app-gif.gif)
 </div>
 
+# MY GIF
 ![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif)
 
 
