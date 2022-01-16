@@ -16,7 +16,9 @@ function Copyright() {
     return (
         <Typography variant="body2" color="text.secondary">
             {'Copyright © '}
-            <Link color="inherit"
+            <Link
+                underline='hover'
+                color="inherit"
                   href="https://github.com/ohadstoller"
             >
                 Ohad Mark Stoller
@@ -33,12 +35,11 @@ function AppLayout() {
             sx={{
                 display: 'flex',
                 justifyContent: 'center',
-                // backgroundColor: 'lightGrey',
                 flexDirection: 'column',
                 minHeight: '95vh',
             }}
         >
-            {/*<CssBaseline/>*/}
+            <CssBaseline/>
             <Container
                 id="autoComplete"
                 // className={styles.main}
@@ -57,7 +58,6 @@ function AppLayout() {
             </Container>
             <Container
                 id="nutritionFacts"
-                // className={styles.main}
                 sx={{
                     height: '40vh',
                     // mt: 6,
@@ -103,7 +103,7 @@ function AppLayout() {
                     mt: 'auto',
                     backgroundColor: (theme) =>
                         theme.palette.mode === 'light'
-                            ? theme.palette.grey[200]
+                            ? theme.palette.grey[50]
                             : theme.palette.grey[800],
                 }}
             >
@@ -119,10 +119,10 @@ function AppLayout() {
                     <Avatar
                         alt="github"
                         src="/github-black.png"
-                        sx={{ width: 20, height: 20 }}
+                        sx={{ width: 35, height: 35, marginBottom: '1px'}}
                     />
                     <Typography variant="body1"
-                                color="text.primary"
+                                color="text.secondary"
                                 sx={{
                                     display: 'flex',
                                     flexDirection: 'row',
@@ -132,6 +132,7 @@ function AppLayout() {
                                 }}
                     >
                         <Link
+                            underline='hover'
                             sx={{
                                 display: 'flex',
                                 flexDirection: 'row',
