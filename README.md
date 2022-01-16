@@ -15,7 +15,7 @@
     <br />
 <!--     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> -->
     ·
-    <a href="https://github.com/ohadstoller/keto-app/issues">Report Bug, or ask for features</a>
+    <a href="https://github.com/ohadstoller/keto-app/issues">Report Bug | Feature Request</a>
     ·
   </p>
 </div>
@@ -77,6 +77,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
 * [Typescript](https://www.typescriptlang.org/)
+* [Recoil](https://recoiljs.org//)
 * [MUI (Material UI)](https://mui.com/)
 * [Nutritionix API](https://developer.nutritionix.com/)
 
@@ -102,7 +103,7 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [https://developer.nutritionix.com](https://developer.nutritionix.com)
 2. Clone the repo
    ```sh
    git clone https://github.com/[your_username]_/keto-app.git
@@ -111,10 +112,10 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+4. Enter your API keys in `services/config.js`
    ```js
-   const API_KEY = 'ENTER YOUR API';
-   const YOUR_APP_ID = 'ENTER YOUR APP ID';
+    export const YOUR_APP_ID = 'a73da295';
+    export const YOUR_API_KEY = 'df4dbe667601596879b00e5c48fe97b1';
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -135,15 +136,12 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+- [x] Add macros analysis
+- [x] Add loader and error allerts
+- [ ] Add carbs limit alert
+- [ ] Add tests
+- [ ] Add env variables
+- [ ] Make a chrome app
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -151,11 +149,6 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 <!-- CONTRIBUTING -->
 ## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -167,21 +160,12 @@ Don't forget to give the project a star! Thanks again!
 
 
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Ohad Mark Stoller - [@ohadstoller](https://twitter.com/Ohadstoller) - ohadstoller@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/ohadstoller/keto-app/](https://github.com/ohadstoller/keto-app/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -190,19 +174,11 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+Many thanks to Hosein Pouyanmehr, for his MUI themplate, for better themes handling**.
+You can check his projects below:
+* [Hosein's Repositories](https://github.com/hajhosein?tab=repositories/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
