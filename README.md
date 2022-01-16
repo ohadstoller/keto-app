@@ -21,8 +21,6 @@
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
 * [Typescript](https://www.typescriptlang.org/)
@@ -32,13 +30,6 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 
 ### Installation
@@ -80,11 +71,7 @@ To get a local copy up and running follow these simple example steps.
 - [x] Add macros analysis
 - [x] Add loader and error allerts
 - [x] Add auto suggestions
-- [ ] Add debounce function to auto suggestions
-- [ ] Add more typescript interfaces 
 - [ ] Add carbs limit alert
-- [ ] Add tests
-- [ ] Add env variables
 - [ ] Make a chrome app
 
 <p align="right">(<a href="#top">back to top</a>)</p>
