@@ -21,14 +21,14 @@
 
 ### Built With
 
-<h3 align="center">
+<h3 align="center">* [Next.js](https://nextjs.org/)</h3>
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
 * [Typescript](https://www.typescriptlang.org/)
 * [Recoil](https://recoiljs.org//)
 * [MUI (Material UI)](https://mui.com/)
 * [Nutritionix API](https://developer.nutritionix.com/)
-</h3>
+
 
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
