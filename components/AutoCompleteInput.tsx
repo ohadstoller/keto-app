@@ -24,17 +24,17 @@ interface Food {
 }
 
 export default function AutocompleteInput() {
-    const [showAlert, setShowAlert] = useState(false)
-    const [alertData, setAlertData] = useState({
-        alertContent: '',
-        alertType: ''
-    });
     const [foodItems, setFoodItems] = useRecoilState(foodListState)
     const [open, setOpen] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [options, setOptions] = useState<any[]>([]);
     const [loading, setLoading] = useState(false)
     const [isFetching, setIsFetching] = useState(false)
+    const [showAlert, setShowAlert] = useState(false)
+    const [alertData, setAlertData] = useState({
+        alertContent: '',
+        alertType: ''
+    });
 
     const onInputChange = (event: React.SyntheticEvent, value: string, reason: string) => {
         // @ts-ignore
@@ -122,6 +122,7 @@ export default function AutocompleteInput() {
                     width: '30vw',
                     display: 'flex',
                 }}
+                clearOnEscape={true}
                 open={open}
                 freeSolo
                 autoComplete
