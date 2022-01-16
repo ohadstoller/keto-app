@@ -1,4 +1,4 @@
-import {atom, RecoilState} from 'recoil'
+import {atom} from 'recoil'
 
 interface Food {
     common_type: any,
@@ -11,7 +11,7 @@ interface Food {
     tag_name: string
 }
 
-export const foodListState: RecoilState<Food[]> = atom({
+export const foodListState = atom({
     'key': 'foodListState',
     default: []
 })
