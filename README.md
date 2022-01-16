@@ -80,6 +80,7 @@ To get a local copy up and running follow these simple example steps.
 - [x] Add macros analysis
 - [x] Add loader and error allerts
 - [x] Add auto suggestions
+- [ ] Add debounce function to auto suggestions
 - [ ] Add more typescript interfaces 
 - [ ] Add carbs limit alert
 - [ ] Add tests
