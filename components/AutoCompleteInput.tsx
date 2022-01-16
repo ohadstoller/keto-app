@@ -8,6 +8,9 @@ import {fetchFood, fetchSuggestions} from "@/services/FoodService";
 import {useRecoilState} from "recoil";
 import {foodListState} from "@/atoms/FoodAtom";
 import hash from "object-hash";
+import {Alert, Stack} from "@mui/material";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 
 interface Food {
     common_type: any,
@@ -21,11 +24,17 @@ interface Food {
 }
 
 export default function AutocompleteInput() {
+    const [showAlert, setShowAlert] = useState(false)
+    const [alertData, setAlertData] = useState({
+        alertContent: '',
+        alertType: ''
+    });
     const [foodItems, setFoodItems] = useRecoilState(foodListState)
     const [open, setOpen] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [options, setOptions] = useState<any[]>([]);
     const [loading, setLoading] = useState(false)
+    const [isFetching, setIsFetching] = useState(false)
 
     const onInputChange = (event: React.SyntheticEvent, value: string, reason: string) => {
         // @ts-ignore
@@ -38,26 +47,40 @@ export default function AutocompleteInput() {
         }
     }
 
+    const handleShowAlert = (alertContent: string, alertType: string) => {
+        setAlertData({alertContent, alertType})
+        setShowAlert(true)
+        const setOnOff = () => {
+            setShowAlert(false)
+            setAlertData({alertContent: '', alertType: ''})
+        }
+        setTimeout(setOnOff, 4000)
+
+    }
+
     async function setToFetchedFood(value: string) {
-        let fetchedFood = await fetchFood(value)
-        console.log("-> fetchedFood", fetchedFood);
-        const foodItemWithId = {...fetchedFood, id: hash(fetchedFood)};
-        console.log("-> foodItemWithId", foodItemWithId);
-        setFoodItems((foodItems: (Food | object)[]): Food[] => {
-            // @ts-ignore
-            return [foodItemWithId, ...foodItems];
-        });
+
+        try {
+            setIsFetching(true)
+            let fetchedFood = await fetchFood(value)
+            handleShowAlert('Found food item, added to your list :)', 'success')
+            const foodItemWithId: any = {...fetchedFood, id: hash(fetchedFood)};
+            setFoodItems([foodItemWithId, ...foodItems])
+            setIsFetching(false)
+        } catch (e) {
+            setIsFetching(false)
+            handleShowAlert('Sorry, something went wrong 😪', 'error')
+            console.log("-> e", e);
+        }
+
     }
 
     const onChange = async (e: React.SyntheticEvent) => {
         e.preventDefault()
-        // @ts-ignore
-        const {outerText, value} = e.target;
+        const {outerText, value}: any = e.target;
         if (value) {
-            console.log("-> fetching... e.target.value", value);
             await setToFetchedFood(value);
         } else if (outerText) {
-            console.log("-> fetching... e.target.outerText", outerText);
             await setToFetchedFood(outerText);
         }
         setInputValue('')
@@ -71,7 +94,6 @@ export default function AutocompleteInput() {
                 const suggestions: AxiosResponse<Food[]> = await fetchSuggestions(inputValue as string)
                 console.log("-> suggestions", suggestions);
                 if (active) {
-                    // @ts-ignore
                     setOptions(suggestions);
                     setLoading(false)
                 }
@@ -83,13 +105,21 @@ export default function AutocompleteInput() {
         };
     }, [inputValue]);
 
-    // @ts-ignore
     useEffect(() => {
         inputValue === '' ? setOpen(false) : setOpen(true)
     }, [open, options, inputValue]);
 
     return (
-        <div>
+        <Container
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                width: '100%',
+                height: '10vh',
+                alignItems: 'center'
+            }}>
+
             <Autocomplete
                 sx={{
                     width: '30vw',
@@ -100,10 +130,6 @@ export default function AutocompleteInput() {
                 autoComplete
                 onChange={onChange}
                 clearOnBlur
-                // autoSelect
-                // selectOnFocus
-                // handleHomeEndKeys
-                // openOnFocus
                 onInputChange={onInputChange}
                 onOpen={() => {
                     setOpen(true);
@@ -115,9 +141,7 @@ export default function AutocompleteInput() {
                 isOptionEqualToValue={(option, value) => option.food_name === value.food_name}
                 getOptionLabel={(option) => option.food_name ? option.food_name : ''}
                 options={options}
-
                 loading={loading}
-                // disableClearable
                 renderInput={(params) => (
                     <TextField
                         {...params}
@@ -135,7 +159,30 @@ export default function AutocompleteInput() {
                     />
                 )}
             />
-        </div>
+            <Stack
+                sx={{
+                    width: '30vw',
+                    display: 'flex',
+                    alignItems: 'center',
+                    height: '0px',
+                    mt: '10px'
+                }}
+            >
+                {isFetching ?
+                    <Box sx={{ mt: 2 }}>
+                        <CircularProgress />
+                    </Box> : <></>
+                }
+                {showAlert ?
+                    <Alert severity={alertData?.alertType}
+                    >
+                        {alertData?.alertContent}</Alert> : <></>
+                }
+            </Stack>
+
+        </Container>
+
+
     );
 }
 
