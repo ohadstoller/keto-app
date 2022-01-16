@@ -7,10 +7,10 @@
 <br />
 <div align="center">
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Keto App</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Log your meal, using free speech analysis, and discover your macros :)
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
