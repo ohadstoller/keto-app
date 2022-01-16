@@ -117,6 +117,16 @@ _Below is an example of how you can instruct your audience on installing and set
     export const YOUR_APP_ID = 'a73da295';
     export const YOUR_API_KEY = 'df4dbe667601596879b00e5c48fe97b1';
    ```
+   
+5. Run development mode
+   ```sh
+    npm run dev
+   ```
+   
+6. Build
+   ```sh
+    npm run build
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
