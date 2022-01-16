@@ -12,14 +12,11 @@
   <p align="center">
     Log your meal, using free speech analysis, and discover your macros :)
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+<!--     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> -->
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/ohadstoller/keto-app/issues">Report Bug, or ask for features</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
   </p>
 </div>
 
@@ -79,12 +76,9 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [Typescript](https://www.typescriptlang.org/)
+* [MUI (Material UI)](https://mui.com/)
+* [Nutritionix API](https://developer.nutritionix.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -111,7 +105,7 @@ _Below is an example of how you can instruct your audience on installing and set
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/[your_username]_/keto-app.git
    ```
 3. Install NPM packages
    ```sh
@@ -120,6 +114,7 @@ _Below is an example of how you can instruct your audience on installing and set
 4. Enter your API in `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
+   const YOUR_APP_ID = 'ENTER YOUR APP ID';
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
