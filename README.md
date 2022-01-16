@@ -12,24 +12,14 @@
     Log your meal, using free speech analysis, and discover your macros :)
     <br />
     <br />
-
-    
   </p>
 </div>
+
+![ScreenShot](/screenshots/latest.png)
 
 
 
 ### Built With
-
-<h3 align="center">* [Next.js](https://nextjs.org/)</h3>
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Typescript](https://www.typescriptlang.org/)
-* [Recoil](https://recoiljs.org//)
-* [MUI (Material UI)](https://mui.com/)
-* [Nutritionix API](https://developer.nutritionix.com/)
-
-
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
 * [Typescript](https://www.typescriptlang.org/)
