@@ -15,7 +15,7 @@
 <!--     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> -->
     ·
     <a href="https://github.com/ohadstoller/keto-app/issues">Report Bug | Feature Request</a>
-    ![](https://github.com/ohadstoller/keto-app/blob/main/keto-app-gif.gif)
+
     ·
   </p>
 </div>
@@ -108,6 +108,9 @@ To get a local copy up and running follow these simple example steps.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+
+<div align="right">     ![](https://github.com/ohadstoller/keto-app/blob/main/keto-app-gif.gif) </div>
+
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
