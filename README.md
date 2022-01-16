@@ -1,6 +1,6 @@
 <div id="top"></div>
 
-![](https://github.com/ohadstoller/keto-app/Your_GIF_Name.gif)
+![](https://github.com/ohadstoller/keto-app/blob/main/keto-app-gif.gif)
 
 
 
