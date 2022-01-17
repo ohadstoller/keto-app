@@ -57,19 +57,18 @@ export default function AutocompleteInput() {
 
     }
 
-    async function setToFetchedFood(value: string) {
+    async function handleFetchedFood(value: string) {
         try {
             setIsFetching(true)
             let fetchedFood = await fetchFood(value)
             handleShowAlert('Found food item, added to your list :)', 'success')
-            // @ts-ignore
-            const foodItemWithId: never = {...fetchedFood, id: hash(fetchedFood)};
+            const foodItemWithId: any = {...fetchedFood, id: hash(fetchedFood)};
             setFoodItems([foodItemWithId, ...foodItems])
             setIsFetching(false)
         } catch (e) {
             setIsFetching(false)
             handleShowAlert('Sorry, something went wrong 😪', 'error')
-            console.log("-> e", e);
+            console.error("Error 🥴", e);
         }
     }
 
@@ -77,9 +76,9 @@ export default function AutocompleteInput() {
         e.preventDefault()
         const {outerText, value}: any = e.target;
         if (value) {
-            await setToFetchedFood(value);
+            await handleFetchedFood(value);
         } else if (outerText) {
-            await setToFetchedFood(outerText);
+            await handleFetchedFood(outerText);
         }
         setInputValue('')
     }
