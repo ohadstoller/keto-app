@@ -145,6 +145,7 @@ export default function AutocompleteInput() {
                         {...params}
                         label="Type your food"
                         InputProps={{
+                            // autoComplete: 'new-password',
                             ...params.InputProps,
                             endAdornment: (
                                 <React.Fragment>
@@ -171,10 +172,10 @@ export default function AutocompleteInput() {
                         <CircularProgress />
                     </Box> : <></>
                 }
-                {showAlert ?
+                {showAlert ??
                     <Alert severity={alertData?.alertType}
                     >
-                        {alertData?.alertContent}</Alert> : <></>
+                        {alertData?.alertContent}</Alert>
                 }
             </Stack>
         </Container>
