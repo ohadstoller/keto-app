@@ -105,11 +105,7 @@ export default function AutocompleteInput() {
             active = false;
         };
     }, [inputValue]);
-
-    useEffect(() => {
-        inputValue === '' ? setOpen(false) : setOpen(true)
-    }, [inputValue]);
-
+    
     return (
         <Container
             sx={{
