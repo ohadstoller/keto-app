@@ -57,7 +57,7 @@ export default function AutocompleteInput() {
 
     }
 
-    async function handleFetchedFood(value: string) {
+    const handleFetchedFood = async (value: string) => {
         try {
             setIsFetching(true)
             let fetchedFood = await fetchFood(value)
@@ -165,8 +165,8 @@ export default function AutocompleteInput() {
                 }}
             >
                 {isFetching ?
-                    <Box sx={{ mt: 2 }}>
-                        <CircularProgress />
+                    <Box sx={{mt: 2}}>
+                        <CircularProgress/>
                     </Box> : <></>
                 }
                 {showAlert ?
