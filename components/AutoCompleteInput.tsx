@@ -7,21 +7,21 @@ import {AxiosResponse} from "axios";
 import {fetchFood, fetchSuggestions} from "@/services/FoodService";
 import {useRecoilState} from "recoil";
 import {foodListState} from "@/atoms/FoodAtom";
-import hash from "object-hash";
 import {Alert, Stack} from "@mui/material";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import {Food} from '@/services/FoodService';
 
-interface Food {
-    common_type: any,
-    food_name: string,
-    local: string,
-    photo: { thumb: string },
-    serving_qty: number,
-    serving_unit: string,
-    tag_id: string,
-    tag_name: string
-}
+// interface Food {
+//     common_type: any,
+//     food_name: string,
+//     local: string,
+//     photo: { thumb: string },
+//     serving_qty: number,
+//     serving_unit: string,
+//     tag_id: string,
+//     tag_name: string
+// }
 
 export default function AutocompleteInput() {
     const [foodItems, setFoodItems] = useRecoilState(foodListState)
@@ -60,10 +60,9 @@ export default function AutocompleteInput() {
     const handleFetchedFood = async (value: string) => {
         try {
             setIsFetching(true)
-            let fetchedFood = await fetchFood(value)
+            let fetchedFood: Food = await fetchFood(value)
             handleShowAlert('Found food item, added to your list :)', 'success')
-            const foodItemWithId: any = {...fetchedFood, id: hash(fetchedFood)};
-            setFoodItems([foodItemWithId, ...foodItems])
+            setFoodItems([fetchedFood, ...foodItems])
             setIsFetching(false)
         } catch (e) {
             setIsFetching(false)
@@ -89,7 +88,7 @@ export default function AutocompleteInput() {
             if (inputValue.length > 1) {
                 setLoading(true)
                 try {
-                    const suggestions: AxiosResponse<Food[]> = await fetchSuggestions(inputValue as string)
+                    const suggestions: AxiosResponse<string[]> = await fetchSuggestions(inputValue)
                     if (active) {
                         setOptions(suggestions);
                         setLoading(false)
@@ -134,8 +133,8 @@ export default function AutocompleteInput() {
                     setInputValue('')
                     setOpen(false);
                 }}
-                isOptionEqualToValue={(option, value) => option.food_name === value.food_name}
-                getOptionLabel={(option) => option.food_name ? option.food_name : ''}
+                isOptionEqualToValue={(option, value) => option === value}
+                getOptionLabel={(option) => option ? option : ''}
                 options={options}
                 loading={loading}
                 renderInput={(params) => (
@@ -143,7 +142,7 @@ export default function AutocompleteInput() {
                         {...params}
                         label="Type your food"
                         InputProps={{
-                            // autoComplete: 'new-password',
+                            autoComplete: 'new-password',
                             ...params.InputProps,
                             endAdornment: (
                                 <React.Fragment>

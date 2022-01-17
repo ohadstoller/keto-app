@@ -254,11 +254,11 @@ export default function EnhancedTable() {
         const updatedFoodItems = async () => {
             const newFoodItems = foodItems.map(foodItem =>
                 createData(
-                    `${foodItem.serving_qty} ${foodItem.serving_unit} ${foodItem.food_name}`,
-                    foodItem?.nf_calories,
-                    foodItem?.nf_total_fat,
-                    foodItem?.nf_total_carbohydrate,
-                    foodItem?.nf_protein,
+                    `${foodItem.quantity} ${foodItem.units} ${foodItem.name}`,
+                    foodItem?.calories,
+                    foodItem?.fat,
+                    foodItem?.carbs,
+                    foodItem?.protein,
                     foodItem.id
                 ),
             )

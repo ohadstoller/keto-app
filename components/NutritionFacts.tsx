@@ -34,17 +34,17 @@ function NutritionFacts() {
 
 
     const updateCarbs = () => {
-        let totalCarbs: number = totalNutrients(foodItems, 'nf_total_carbohydrate')
+        let totalCarbs: number = totalNutrients(foodItems, 'carbs')
         setTotalCarbs(Math.round(totalCarbs))
     }
 
     const updateFats = () => {
-        let totalFats: number = totalNutrients(foodItems, 'nf_total_fat')
+        let totalFats: number = totalNutrients(foodItems, 'fat')
         setTotalFats(Math.round(totalFats))
     }
 
     const updateProtein = () => {
-        let totalProtein: number = totalNutrients(foodItems, 'nf_protein')
+        let totalProtein: number = totalNutrients(foodItems, 'protein')
         setTotalProtein(Math.round(totalProtein))
     }
 
