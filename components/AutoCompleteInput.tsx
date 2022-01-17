@@ -88,11 +88,16 @@ export default function AutocompleteInput() {
         (async () => {
             if (inputValue.length > 1) {
                 setLoading(true)
-                const suggestions: AxiosResponse<Food[]> = await fetchSuggestions(inputValue as string)
-                if (active) {
-                    setOptions(suggestions);
-                    setLoading(false)
+                try {
+                    const suggestions: AxiosResponse<Food[]> = await fetchSuggestions(inputValue as string)
+                    if (active) {
+                        setOptions(suggestions);
+                        setLoading(false)
+                    }
+                } catch (e) {
+                    console.error("Error 🥴", e);
                 }
+
             }
         })();
         return () => {
@@ -103,7 +108,7 @@ export default function AutocompleteInput() {
 
     useEffect(() => {
         inputValue === '' ? setOpen(false) : setOpen(true)
-    }, [open, options, inputValue]);
+    }, [inputValue]);
 
     return (
         <Container
