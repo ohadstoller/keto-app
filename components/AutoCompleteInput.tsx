@@ -58,16 +58,20 @@ export default function AutocompleteInput() {
     }
 
     const handleFetchedFood = async (value: string) => {
+        setIsFetching(true)
+        let fetchedFood = null
         try {
-            setIsFetching(true)
-            let fetchedFood: Food = await fetchFood(value)
-            handleShowAlert('Found food item, added to your list :)', 'success')
-            setFoodItems([fetchedFood, ...foodItems])
-            setIsFetching(false)
+            fetchedFood = await fetchFood(value)
         } catch (e) {
-            setIsFetching(false)
             handleShowAlert('Sorry, something went wrong 😪', 'error')
             console.error("Error 🥴", e);
+        } finally {
+            if (fetchedFood) {
+                setInputValue('')
+                handleShowAlert('Found food item, added to your list :)', 'success')
+                setFoodItems([fetchedFood, ...foodItems])
+            }
+            setIsFetching(false)
         }
     }
 
