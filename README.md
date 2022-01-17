@@ -46,8 +46,8 @@
    
 4. Enter your API keys in `services/config.js`
    ```js
-    export const YOUR_APP_ID = 'a73da295';
-    export const YOUR_API_KEY = 'df4dbe667601596879b00e5c48fe97b1';
+    export const YOUR_APP_ID = '[your app id]';
+    export const YOUR_API_KEY = '[your api key]';
    ```
    
 5. Run development mode
