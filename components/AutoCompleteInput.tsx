@@ -37,8 +37,7 @@ export default function AutocompleteInput() {
     });
 
     const onInputChange = (event: React.SyntheticEvent, value: string, reason: string) => {
-        // @ts-ignore
-        setInputValue(event.target?.value);
+        setInputValue(value);
         if (event.type === 'click') {
             if (reason === 'clear') {
                 setInputValue('');
@@ -122,7 +121,6 @@ export default function AutocompleteInput() {
                     width: '30vw',
                     display: 'flex',
                 }}
-                clearOnEscape={true}
                 open={open}
                 freeSolo
                 autoComplete
@@ -172,10 +170,10 @@ export default function AutocompleteInput() {
                         <CircularProgress />
                     </Box> : <></>
                 }
-                {showAlert ??
+                {showAlert ?
                     <Alert severity={alertData?.alertType}
                     >
-                        {alertData?.alertContent}</Alert>
+                        {alertData?.alertContent}</Alert> : <></>
                 }
             </Stack>
         </Container>
