@@ -202,7 +202,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
     const [foodItems, setFoodItems] = useRecoilState(foodListState)
 
 
-    const deleteFood = async () => {
+    const deleteFood = () => {
         let newFoodItems = [...foodItems]
         let indexToDelete = newFoodItems.findIndex(function(food){
             return food.id === selected;
