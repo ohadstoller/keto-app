@@ -15,8 +15,6 @@ import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {visuallyHidden} from '@mui/utils';
 import {useRecoilState, useRecoilValue} from "recoil";
@@ -73,8 +71,6 @@ function getComparator<Key extends keyof any>(
         : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// This method is created for cross-browser compatibility, if you don't
-// need to support IE11, you can use Array.prototype.sort() directly
 function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
     const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
     stabilizedThis.sort((a, b) => {
